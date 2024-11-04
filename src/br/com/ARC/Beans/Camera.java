@@ -1,10 +1,7 @@
 package br.com.ARC.Beans;
 
-public class Camera {
-    private boolean status;
-    private String localizacao;
-    private String idCamera;
-    private Data dadosCapturados;
+public class Camera extends Data {
+    private int numPessoas;
 
     //metodos construtor vazio
 
@@ -12,46 +9,22 @@ public class Camera {
         super();
     }
 
+    //metodo construtor cheio
 
-    //metodos construtor sem atributo de refencia
-    public Camera(boolean status, String localizacao, String idCamera) {
-        super();
-        this.status = status;
-        this.localizacao = localizacao;
-        this.idCamera = idCamera;
+    public Camera(String numberId, String tipoDado, String dado, String timeStamp, String localizacao, boolean statusCaptura) {
+        super(numberId, tipoDado, dado, timeStamp, localizacao, statusCaptura);
+        this.numPessoas = Integer.parseInt(dado);
     }
-
 
     //metodos setters e getters
-    public boolean isStatus() {
-        return status;
+
+    public int getNumPessoas() {
+        return numPessoas;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
-
-    public String getIdCamera() {
-        return idCamera;
-    }
-
-    public void setIdCamera(String idCamera) {
-        this.idCamera = idCamera;
-    }
-
-    public Data getDadosCapturados() {
-        return dadosCapturados;
-    }
-
-    public void setDadosCapturados(Data dadosCapturados) {
-        this.dadosCapturados = dadosCapturados;
+    public void setNumPessoas(int numPessoas) {
+        this.numPessoas = numPessoas;
     }
 }
+
+

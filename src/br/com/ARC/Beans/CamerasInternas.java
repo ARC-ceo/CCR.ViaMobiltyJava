@@ -1,11 +1,7 @@
 package br.com.ARC.Beans;
 
-public class CamerasInternas {
-    private String numeroCamera;
-    private int quantidadePessoasDetectadas;
-    private String status;
-    private Data dadosCapturados;
-
+public class CamerasInternas extends Data {
+    private int numPessoas;
 
     //metodos construtor vazio
 
@@ -13,48 +9,20 @@ public class CamerasInternas {
         super();
     }
 
+    //metodo construtor cheio
 
-    //metodos construtor sem atributo de refencia
-
-    public CamerasInternas(String numeroCamera, int quantidadePessoasDetectadas, String status) {
-        super();
-        this.numeroCamera = numeroCamera;
-        this.quantidadePessoasDetectadas = quantidadePessoasDetectadas;
-        this.status = status;
+    public CamerasInternas(String numberId, String tipoDado, String dado, String timeStamp, String localizacao, boolean statusCaptura) {
+        super(numberId, tipoDado, dado, timeStamp, localizacao, statusCaptura);
+        this.numPessoas = Integer.parseInt(dado);
     }
-
 
     //metodos setters e getters
 
-    public String getNumeroCamera() {
-        return numeroCamera;
+    public int getNumPessoas() {
+        return numPessoas;
     }
 
-    public void setNumeroCamera(String numeroCamera) {
-        this.numeroCamera = numeroCamera;
-    }
-
-    public int getQuantidadePessoasDetectadas() {
-        return quantidadePessoasDetectadas;
-    }
-
-    public void setQuantidadePessoasDetectadas(int quantidadePessoasDetectadas) {
-        this.quantidadePessoasDetectadas = quantidadePessoasDetectadas;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Data getDadosCapturados() {
-        return dadosCapturados;
-    }
-
-    public void setDadosCapturados(Data dadosCapturados) {
-        this.dadosCapturados = dadosCapturados;
+    public void setNumPessoas(int numPessoas) {
+        this.numPessoas = numPessoas;
     }
 }

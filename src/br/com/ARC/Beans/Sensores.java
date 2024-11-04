@@ -1,11 +1,7 @@
 package br.com.ARC.Beans;
 
-public class Sensores {
-    private boolean status;
-    private String localizacao;
-    private String idSensores;
-    private String tipoSensores;
-    private Data dadosCapturados;
+public class Sensores extends Data{
+    private int numPessoas;
 
     //metodos Construtor vazio
 
@@ -13,55 +9,21 @@ public class Sensores {
         super();
     }
 
-    //metodos Construtor sem atributo de refenciia
+    //metodo construtor cheio
 
-    public Sensores(boolean status, String localizacao, String idSensores, String tipoSensores) {
-        super();
-        this.status = status;
-        this.localizacao = localizacao;
-        this.idSensores = idSensores;
-        this.tipoSensores = tipoSensores;
+    public Sensores(String numberId, String tipoDado, String dado, String timeStamp, String localizacao, boolean statusCaptura) {
+        super(numberId, tipoDado, dado, timeStamp, localizacao, statusCaptura);
+        this.numPessoas = Integer.parseInt(dado);
     }
 
     // metodos setters e getters
 
-    public boolean isStatus() {
-        return status;
+    public int getNumPessoas() {
+        return numPessoas;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
-
-    public String getIdSensores() {
-        return idSensores;
-    }
-
-    public void setIdSensores(String idSensores) {
-        this.idSensores = idSensores;
-    }
-
-    public String getTipoSensores() {
-        return tipoSensores;
-    }
-
-    public void setTipoSensores(String tipoSensores) {
-        this.tipoSensores = tipoSensores;
-    }
-
-    public Data getDadosCapturados() {
-        return dadosCapturados;
-    }
-
-    public void setDadosCapturados(Data dadosCapturados) {
-        this.dadosCapturados = dadosCapturados;
+    public void setNumPessoas(int numPessoas) {
+        this.numPessoas = numPessoas;
     }
 }
+

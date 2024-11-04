@@ -8,11 +8,13 @@ public class Passageiros {
     private int idPassageiro;
 
     //metodo construtor vazio
+
     public Passageiros() {
         super ();
     }
 
     //metodo construtor cheio
+
     public Passageiros(String nome, int idade, int embarque, int destino, int idPassageiro) {
         super ();
         this.nome = nome;
@@ -62,5 +64,18 @@ public class Passageiros {
 
     public void setIdPassageiro(int idPassageiro) {
         this.idPassageiro = idPassageiro;
+    }
+
+    // Frontzinho
+
+    @Override
+    public String toString() {
+        return "\n\nPassageiros{" +
+                "\nnome='" + nome + '\'' +
+                "\nidade=" + idade +
+                "\nembarque=" + embarque +
+                "\ndestino=" + destino +
+                "\nidPassageiro=" + idPassageiro +
+                '}';
     }
 }

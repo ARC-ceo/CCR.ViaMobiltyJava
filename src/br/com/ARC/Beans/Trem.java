@@ -4,25 +4,24 @@ import java.util.List;
 
 public class Trem {
     private String numeroDoTrem;
-    private Vagao vagoes;
-    private int capacidadeTotal;
-    private int quantidadeDeVagoes;
+    private int capacidade;
+    private int sensor;
 
     //metodos construtor vazio
+
     public Trem() {
         super();
     }
 
-    //metodos construtor sem atributo de referencia
-    public Trem(String numeroDoTrem, int capacidadeTotal, int quantidadeDeVagoes) {
-        super();
+    //metodo construtor cheio
+
+    public Trem(String numeroDoTrem, int capacidade, Sensores sensor) {
         this.numeroDoTrem = numeroDoTrem;
-        this.capacidadeTotal = capacidadeTotal;
-        this.quantidadeDeVagoes = quantidadeDeVagoes;
+        this.capacidade = capacidade;
+        this.sensor = sensor.getNumPessoas();
     }
 
     //metodos setters e getters
-
 
     public String getNumeroDoTrem() {
         return numeroDoTrem;
@@ -32,27 +31,41 @@ public class Trem {
         this.numeroDoTrem = numeroDoTrem;
     }
 
-    public Vagao getVagoes() {
-        return vagoes;
+    public int getcapacidade() {
+        return capacidade;
     }
 
-    public void setVagoes(Vagao vagoes) {
-        this.vagoes = vagoes;
+    public void setcapacidade(int capacidade) {
+        this.capacidade = capacidade;
     }
 
-    public int getCapacidadeTotal() {
-        return capacidadeTotal;
+    public int getSensor() {
+        return sensor;
     }
 
-    public void setCapacidadeTotal(int capacidadeTotal) {
-        this.capacidadeTotal = capacidadeTotal;
+    public void setSensor(int sensor) {
+        this.sensor = sensor;
     }
 
-    public int getQuantidadeDeVagoes() {
-        return quantidadeDeVagoes;
+    // metodo work para calcular lotação
+
+    public String statusOcupacao(){
+        if (sensor < capacidade){
+            return "Não consta superlotação\n";
+        }
+        else {
+            return "SUPERLOTAÇÃO DETECTADA!\n";
+        }
     }
 
-    public void setQuantidadeDeVagoes(int quantidadeDeVagoes) {
-        this.quantidadeDeVagoes = quantidadeDeVagoes;
+    // Frontzinho
+
+    @Override
+    public String toString() {
+        return "\n\nVagao{" +
+                "\nnumeroDoTrem='" + numeroDoTrem + '\'' +
+                "\ncapacidade=" + capacidade +
+                "\nOcupação: " + statusOcupacao() +
+                '}';
     }
 }

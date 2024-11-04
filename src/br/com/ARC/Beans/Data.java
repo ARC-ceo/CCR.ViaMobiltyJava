@@ -1,31 +1,39 @@
 package br.com.ARC.Beans;
 
-public class Data {
-    private String tipoDado;
-    private String valor;
-    private String timeStamp;
-    private String localizacao;
-    private String sensoresID;
-    private boolean status;
+public abstract class Data {
+    protected String numberId;
+    protected String tipoDado;
+    protected String dado;
+    protected String timeStamp;
+    protected String localizacao;
+    protected boolean statusCaptura;
 
     //metodo Construtor vazio
+
     public Data() {
         super();
     }
 
     //metodo Construtor cheio
 
-    public Data(String tipoDado, String valor, String timeStamp, String localizacao, String sensoresID, boolean status) {
-        super ();
+    public Data(String numberId, String tipoDado, String dado, String timeStamp, String localizacao, boolean statusCaptura) {
+        this.numberId = numberId;
         this.tipoDado = tipoDado;
-        this.valor = valor;
+        this.dado = dado;
         this.timeStamp = timeStamp;
         this.localizacao = localizacao;
-        this.sensoresID = sensoresID;
-        this.status = status;
+        this.statusCaptura = statusCaptura;
     }
 
     // metodos Setter e Getters
+
+    public String getNumberId() {
+        return numberId;
+    }
+
+    public void setNumberId(String numberId) {
+        this.numberId = numberId;
+    }
 
     public String getTipoDado() {
         return tipoDado;
@@ -35,12 +43,12 @@ public class Data {
         this.tipoDado = tipoDado;
     }
 
-    public String getValor() {
-        return valor;
+    public String getDado() {
+        return dado;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setDado(String dado) {
+        this.dado = dado;
     }
 
     public String getTimeStamp() {
@@ -59,20 +67,25 @@ public class Data {
         this.localizacao = localizacao;
     }
 
-    public String getSensoresID() {
-        return sensoresID;
+    public boolean isStatusCaptura() {
+        return statusCaptura;
     }
 
-    public void setSensoresID(String sensoresID) {
-        this.sensoresID = sensoresID;
+    public void setStatusCaptura(boolean statusCaptura) {
+        this.statusCaptura = statusCaptura;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
+    // Frontzinho
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "\nData{" +
+                "\nnumberId='" + numberId + '\'' +
+                "\ntipoDado='" + tipoDado + '\'' +
+                "\ndado='" + dado + '\'' +
+                "\ntimeStamp='" + timeStamp + '\'' +
+                "\nlocalizacao='" + localizacao + '\'' +
+                "\nstatusCaptura=" + statusCaptura +
+                '}';
     }
-
 }

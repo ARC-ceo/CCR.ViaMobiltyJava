@@ -1,67 +1,34 @@
 package br.com.ARC.Beans;
 
 public class Plataforma {
-    private String nuumeroDaPlataforma;
-    private int lotacaoAtual;
-    private Camera cameras;
-    private Sensores sensores;
-    private Aplicativo aplicativo;
+    private String numeroDaPlataforma;
     private String nomeDaEstacao;
+    private int camera;
+    private int sensor;
 
     //metodo construtor vazio
+
     public Plataforma() {
         super();
     }
 
-    //metodo construtor sem atributo de referencia
+    //metodo construtor cheio
 
-    public Plataforma(String nuumeroDaPlataforma, int lotacaoAtual, String nomeDaEstacao) {
-        super();
-        this.nuumeroDaPlataforma = nuumeroDaPlataforma;
-        this.lotacaoAtual = lotacaoAtual;
+    public Plataforma(String numeroDaPlataforma, String nomeDaEstacao, Camera camera, Sensores sensor) {
+        this.numeroDaPlataforma = numeroDaPlataforma;
         this.nomeDaEstacao = nomeDaEstacao;
+        this.camera = camera.getNumPessoas();
+        this.sensor = sensor.getNumPessoas();
     }
 
     //metodos setter e getters
 
-    public String getNuumeroDaPlataforma() {
-        return nuumeroDaPlataforma;
+    public String getNumeroDaPlataforma() {
+        return numeroDaPlataforma;
     }
 
-    public void setNuumeroDaPlataforma(String nuumeroDaPlataforma) {
-        this.nuumeroDaPlataforma = nuumeroDaPlataforma;
-    }
-
-    public int getLotacaoAtual() {
-        return lotacaoAtual;
-    }
-
-    public void setLotacaoAtual(int lotacaoAtual) {
-        this.lotacaoAtual = lotacaoAtual;
-    }
-
-    public Camera getCameras() {
-        return cameras;
-    }
-
-    public void setCameras(Camera cameras) {
-        this.cameras = cameras;
-    }
-
-    public Sensores getSensores() {
-        return sensores;
-    }
-
-    public void setSensores(Sensores sensores) {
-        this.sensores = sensores;
-    }
-
-    public Aplicativo getAplicativo() {
-        return aplicativo;
-    }
-
-    public void setAplicativo(Aplicativo aplicativo) {
-        this.aplicativo = aplicativo;
+    public void setNumeroDaPlataforma(String numeroDaPlataforma) {
+        this.numeroDaPlataforma = numeroDaPlataforma;
     }
 
     public String getNomeDaEstacao() {
@@ -70,5 +37,39 @@ public class Plataforma {
 
     public void setNomeDaEstacao(String nomeDaEstacao) {
         this.nomeDaEstacao = nomeDaEstacao;
+    }
+
+    public int getCamera() {
+        return camera;
+    }
+
+    public void setCamera(int camera) {
+        this.camera = camera;
+    }
+
+    public int getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(int sensor) {
+        this.sensor = sensor;
+    }
+
+    // metodo work para calcular lotação
+
+    public String statusFluxo(){
+        double media = (camera + sensor) / 2.0;
+        return String.format("%.2f", media);
+    }
+
+    // Frontzinho
+
+    @Override
+    public String toString() {
+        return "\n\nPlataforma{" +
+                "\nnumeroDaPlataforma='" + numeroDaPlataforma + '\'' +
+                "\nnomeDaEstacao='" + nomeDaEstacao + '\'' +
+                "\nFluxo de pessoas: " + statusFluxo() + '\'' +
+                '}';
     }
 }
